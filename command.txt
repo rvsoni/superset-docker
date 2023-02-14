@@ -1,0 +1,7 @@
+
+docker build -t superset-postgres:stable .
+
+docker run --env-file=./.env --volume ./superset_config.py:/etc/superset/superset_config.py -p 8080:8088/tcp --name superset localhost/superset-postgres:stable
+
+docker-compose -f docker-compose.yml up
+docker-compose -f docker-compose.yml down
